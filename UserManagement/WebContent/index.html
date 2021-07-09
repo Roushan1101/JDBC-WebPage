@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+	<meta charset="UTF-8" />
+	
+	<meta http-equiv="X-UA-Compatible" content="IE-edge" />
+	
+	<meta name="viewport" content="width=device-width, initial scale=1.0">
+	
+	<link rel="stylesheet" href="style.css" />
+	
+	<title>Highradius Internship</title>
+	
+	</head>
+	
+	<body>
+	
+		<div id="left">
+		
+		<img src="C:\Users\Slim Shady\Downloads\abclogo.png" alt="Italian Trulli">
+		
+		</div>
+		
+		<div id="center">
+				<img src="C:\Users\Slim Shady\Downloads\logo.svg" alt="Italian Trulli">
+		</div>
+		
+		<h2><p style="color:white;">Invoice List</p></h2>
+		
+		<div id="bg">
+		
+		<div class="flex-end">
+		
+			<button id="add")">+ ADD</button>
+			<button id="edit" onclick="togglePopup_edit()">/ EDIT</button>
+			<button id="delete" onclick="togglePopup_dlt()">- DELETE</button>
+			
+			<input id="searchbar" type="text" name="search" placeholder="Search by Invoice number">
+			<form class="searchbar">
+                  <button type="form"><img src="file:///C:/Users/Slim%20Shady/eclipse-workspace/Summer_Internship_Backend/WebContent/images/search-24px%20(3).svg" alt="search"> </button>
+            </form>
+		</div>
+		
+		<table>
+  <tr>
+  	<th><input onclick='selects()' type="checkbox"></th>
+    <th>Customer Name</th>
+    <th>Customer#</th>
+    <th>Invoice#</th>
+    <th>Invoice amount</th>
+    <th>Due Date</th>
+    <th>Predicted payment date</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+	<td><input type="checkbox" name="chk"></td	>
+	<td>XYZ</td>
+    <td>H2HBABBA2411</td>
+    <td>18238762</td>
+    <td>500000</td>
+    <td>15-MAR-2020</td>
+    <td>23-APR-2022
+    <td>PPPPP</td>
+  	</tr>
+  
+  <tr>
+	<td><input type="checkbox" name="chk"></td	>
+	<td>ABC</td>
+    <td>H2HBABBA2200</td>
+    <td>18238762</td>
+    <td>500000</td>
+    <td>15-MAR-2020</td>
+    <td>23-APR-2022
+    <td>GGGGG</td>
+  </tr>
+  
+  <tr>
+	<td><input type="checkbox" name="chk"></td	>
+	<td>PQR</td>
+    <td>H2HBABBA2222</td>
+    <td>18238762</td>
+    <td>500000</td>
+    <td>15-MAR-2020</td>
+    <td>23-APR-2022
+    <td>ZZZZZ</td>
+  </tr>
+  	
+</table>
+		
+		
+		<!-- The Modal for add -->
+		<div id="myAdd" class="modal">
+			<!-- Modal content -->
+  			<div class="modal-content">
+    			<span class="close">&times;</span>
+    			<h3><p style="color: white">Add Invoice</p></h3>
+    			<div class="container">
+  					<form>
+    					<div class="row">
+      						<div class="col-25">
+        						<label for="cname">Customer Name</label>
+        						<input type="text" id="cname" name="custname" placeholder=" ">
+					      	</div>
+      					</div>
+    					<div class="row">
+      						<div class="col-25">
+        						<label for="cno">Customer No.</label>
+	        					<input type="number" id="cno" name="custno" placeholder=" ">
+      						</div>
+    					</div>
+    					<div class="row">
+      						<div class="col-25">
+        						<label for="ino">Invoice No.</label>
+	        					<input type="number" id="ino" name="inno" placeholder=" ">
+      						</div>
+    					</div>
+    					
+    					<div class="row">
+      						<div class="col-25">
+        						<label for="iamt">Invoice Amount</label>
+	        					<input type="number" id="iamt" name="inamt" placeholder=" ">
+      						</div>
+    					</div>
+    					
+    					<div class="col-25">
+        					<label for="duedate">Due Date:</label>
+  							<input type="date" id="duedate" name="DueDate">
+  						</div>
+    					
+    					<div class="row">
+      						<div class="col-25">
+        						<label for="note">Notes</label>
+      								<textarea id="note" name="notes" placeholder=" " style="height:200px;width:250px"></textarea>
+      						</div>
+    					</div>
+	    				
+    					<div class="row">
+      						<button id='clear' type="Clear">Clear</button>
+    					</div>
+    					<div class="row">
+      						<button id='add_btn' type="Add">Add</button>
+    					</div>
+    					
+  					</form>
+    			</div>
+  			</div>
+		</div>
+		
+		<div class="popup" id="popup-1">
+  			<div class="overlay"></div>
+  			<div class="content">
+   				<div class="close-btn" onclick="togglePopup_edit()">X</div>
+					<p style="color:white">EDIT INVOICE</p>
+					<form>
+					<div class="col-25">
+      					<div class="row">
+       						<label for="iamt">Invoice Amount</label>
+	        				<input type="number" id="iamt" name="inamt" placeholder=" ">
+      					</div>
+    				</div>
+	    			<div class="col-25">
+     					
+     					
+    				</div>
+    				</form>
+    				<div class="row">
+ 		    			<button id='clear' type="Reset">Reset</button>
+    				</div>
+    				<div class="row">
+      					<button id='add_btn' type="Save">Save</button>
+    				</div>
+	   		</div>
+		</div>
+ 
+		<div class="popup" id="popup-2">
+  			<div class="overlay"></div>
+  			<div class="content">
+   				<div class="close-btn" onclick="togglePopup_dlt()">X</div>
+   				<p style="color:white">Delete Record(s)</p>
+				<p style="color:#C0C6CA">You'll lose your record(s) after this action. We can't recover them once you delete. Are you sure you want to permanently delete them?</p>
+    				<div class="row">
+ 		    			<button id='clear' type="Reset">Reset</button>
+    				</div>
+    				<div class="row">
+      					<button id='add_btn' type="Save">Save</button>
+    				</div>
+    			</div>
+		</div>
+		<script>
+		 function togglePopup_edit(){
+			  document.getElementById("popup-1").classList.toggle("active");
+			}
+		 </script>
+		 
+		 <script>
+		 function togglePopup_dlt(){
+			  document.getElementById("popup-2").classList.toggle("active");
+			}
+		 </script>
+		</div>		
+</body>
+
+<script>
+		
+			// Get the modal
+			var modal_add = document.getElementById("myAdd");
+			
+			// Get the button that opens the modal
+			var btn = document.getElementById("add");
+			
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+			
+			// When the user clicks the button, open the modal 
+			btn.onclick = function() {
+			  modal_add.style.display = "block";
+			}
+			
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal_add.style.display = "none";
+			}
+			
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal_add) {
+			    modal_add.style.display = "none";
+			  }
+			}
+			</script>
+
+	<script type="text/javascript">  
+            function selects(){  
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=true;  
+                }  
+            }
+        </script>
+
+</html>
